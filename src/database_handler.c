@@ -15,11 +15,11 @@ MYSQL *connect_to_mysql(void)
     return conn;
 }
 
-void save_fingerprint_data(MYSQL *db_conn, fp_print_data_t *print)
+void save_fingerprint_data(MYSQL *db_conn, const char *national_id, fp_print_data_t *print)
 {
     char query[256];
-    sprintf(query, "INSERT INTO users (fingerprints, photo_path) VALUES (?, ?)");
+    sprintf(query, "INSERT INTO users (national_id, fingerprints, photo_path) VALUES (?, ?, ?)");
     mysql_query(db_conn, query);
-    mysql_stmt_bind_param(stmt, &print->data);
+    mysql_stmt_bind_param(stmt, &national_id, &print->data, &photo_path);
     mysql_stmt_execute(stmt);
 }

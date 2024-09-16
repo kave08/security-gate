@@ -5,10 +5,8 @@
 
 void init_fingerprint_reader(libusb_device_handle **device)
 {
-    // Initialize libusb
     libusb_init(NULL);
 
-    // Open USB device
     *device = libusb_open_device_with_vid_pid(NULL, 0x03EB, 0x0903);
     if (*device == NULL)
     {

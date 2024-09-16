@@ -5,7 +5,7 @@
 
 void capture_and_save_image(const char *filename)
 {
-    cv::VideoCapture cap(0); // 0 is usually the default camera index
+    cv::VideoCapture cap(0);
 
     if (!cap.isOpened())
     {
