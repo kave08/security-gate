@@ -1,0 +1,7 @@
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    national_id VARCHAR(20) UNIQUE NOT NULL,
+    fingerprints BLOB NOT NULL,
+    photo_path VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
